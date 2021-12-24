@@ -18,6 +18,7 @@ import { LessonOverviewComponent } from './pages/dashboard/lesson/lesson-overvie
 import { LessonQnaComponent } from './pages/dashboard/lesson/lesson-qna/lesson-qna.component';
 import { LessonNotesComponent } from './pages/dashboard/lesson/lesson-notes/lesson-notes.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { NotFoundComponent } from './pages/error/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -97,10 +98,10 @@ const routes: Routes = [
             path: '',
             component: ProfileComponent
           },
-          {
-            path: 'settings',
-            component: ProfileSettingsComponent
-          }
+          // {
+          //   path: 'settings',
+          //   component: ProfileSettingsComponent
+          // }
         ]
       },
     ]
@@ -112,7 +113,11 @@ const routes: Routes = [
   // 1 page
   { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule) },
   // 4 pages
-  { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) }
+  { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) },
+  { 
+    path: '**',
+    component: NotFoundComponent
+  }
 ];
 
 @NgModule({
