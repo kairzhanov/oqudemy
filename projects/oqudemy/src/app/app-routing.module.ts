@@ -106,7 +106,7 @@ const routes: Routes = [
       },
     ]
   },
-  // 2 pages
+  // 3 pages
   { path: 'blog', loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule) },
   // 3 pages
   { path: 'error', loadChildren: () => import('./pages/error/error.module').then(m => m.ErrorModule) },

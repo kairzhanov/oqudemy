@@ -21,4 +21,8 @@ export class PostService {
     }
     return empty();
   }
+
+  getCategoryPosts(category: string): Observable<Post[]> {
+    return of(posts.filter(p => p.category === category));
+  }
 }

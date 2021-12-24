@@ -9,7 +9,7 @@
                 <img [src]="post.photoUrl">
             </div>
             <div class="bg-white flex flex-col justify-start p-6">
-                <p  class="text-green-700 text-sm font-bold uppercase pb-4">{{ post.category }}</p>
+                <a [routerLink]="['/blog/category', post.category]"  class="text-green-700 text-sm font-bold uppercase pb-4">{{ post.category }}</a>
                 <h2 class="text-3xl font-bold hover:text-gray-700 pb-4">{{ post.title }}</h2>
                 <p class="text-sm pb-8">
                     By <span  class="font-semibold hover:text-gray-800">{{ post.author }}</span>, Published on {{ post.publishDate }}
