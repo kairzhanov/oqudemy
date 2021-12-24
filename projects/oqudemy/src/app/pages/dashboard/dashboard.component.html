@@ -1,0 +1,14 @@
+<div class="bg-white">
+    <div class="container">
+        <app-title>Dashboard</app-title>
+        <hr class="my-4">
+        <app-title>My Courses</app-title>
+  
+        <app-course-list [courses]='myCourses' [isDashboard]='true'></app-course-list>
+        <div class='mt-8 mb-4'>
+            <hr>
+        </div>
+        <app-title>Recommended Courses</app-title>
+        <app-course-list [courses]='recommendedCourses'></app-course-list>
+    </div>
+</div>

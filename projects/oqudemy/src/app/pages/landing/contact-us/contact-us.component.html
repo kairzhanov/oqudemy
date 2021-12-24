@@ -1,0 +1,56 @@
+<div class='container'>
+    <div class="">
+      <div class="">
+        <div class="px-4 sm:px-0">
+          <app-title>Contact Us</app-title>
+          <p class="mt-1 text-sm text-gray-600">
+            This information will be sent to us.
+          </p>
+        </div>
+      </div>
+      <div class="mt-5">
+        <form [formGroup]='contactForm' (ngSubmit)='submit()'>
+          <div class="shadow sm:rounded-md sm:overflow-hidden">
+            <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="email" class="block text-sm font-medium text-gray-700">
+                    Email
+                  </label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <input [formControl]='email' type="text" name="email" id="email" class="focus:ring-green-500 focus:border-green-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="hello@gmail.com">
+                  </div>
+                  <p *ngIf="email.invalid && (email.dirty || email.touched)" class="mt-2 text-sm text-red-600 dark:text-red-500">
+                    Please provide a valid email address.
+                </p>
+                </div>
+              </div>
+  
+              <div>
+                <label for="message" class="block text-sm font-medium text-gray-700">
+                  Message
+                </label>
+                <div class="mt-1">
+                  <textarea [formControl]='message' id="message" name="message" rows="3" class="shadow-sm focus:ring-green-500 focus:border-green-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Angular is the best"></textarea>
+                </div>
+                <p class="mt-2 text-sm text-gray-500">
+                  Brief message to us.
+                </p>
+                <p *ngIf="message.invalid && (message.dirty || message.touched)" class="mt-2 text-sm text-red-600 dark:text-red-500">
+                    Please provide a valid message.
+                </p>
+              </div>
+
+              <div *ngIf='showSuccess' [@inOutAnimation] class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+                <span class="font-medium">Success!</span> We got you message.
+              </div>
+  
+            </div>
+            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                <app-button theme='primary' type='submit'>Send</app-button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

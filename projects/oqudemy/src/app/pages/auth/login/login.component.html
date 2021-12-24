@@ -1,0 +1,36 @@
+<div class="container">
+    <app-title>Login</app-title>
+    <form [formGroup]='loginForm' (ngSubmit)='submit()'>
+        <div class="mb-6">
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-500 dark:text-gray-300">Your email</label>
+            <input formControlName='email' type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="name@localhost.com" required="">
+            <p *ngIf="email.invalid && (email.dirty || email.touched)" class="mt-2 text-sm text-red-600 dark:text-red-500">
+                Please provide a valid email address.
+            </p>
+        </div>
+        <div class="mb-6">
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-500 dark:text-gray-300">Your password</label>
+            <input formControlName='password' type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required="">
+            <p *ngIf="password.invalid && (password.dirty || password.touched)" class="mt-2 text-sm text-red-600 dark:text-red-500">
+                Please provide a password.
+            </p>
+        </div>
+        <div class="flex items-start mb-6">
+            <div class="flex items-center h-5">
+                <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 bg-gray-300 rounded border border-gray-300 focus:ring-3 focus:ring-green-300 dark:bg-gray-500 dark:border-gray-600 dark:focus:ring-green-600 dark:ring-offset-gray-800">
+            </div>
+            <div class="ml-3 text-sm">
+                <label for="remember" class="font-medium text-gray-500 dark:text-gray-300">Remember me</label>
+            </div>
+        </div>
+        <div class="flex items-start">
+            <app-button type="submit" theme="primary" [disabled]="loginForm.invalid">Login</app-button>
+            <app-button class='ml-5' routerLink='/auth/forgot-password' theme="light">Forgot Password?</app-button>
+        </div>
+        <div class="mb-6">
+            <p *ngIf="isInvalidPassword" class="mt-2 text-sm text-red-600 dark:text-red-500">
+                Email and/or password are incorrect.
+            </p>
+        </div>
+    </form>
+</div>

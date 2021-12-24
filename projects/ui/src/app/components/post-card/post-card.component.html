@@ -1,0 +1,15 @@
+<article class="flex flex-col shadow my-4">
+    <!-- Article Image -->
+    <a [routerLink]="['/blog/post', post.postId]" class="hover:opacity-75">
+        <img [src]="post.photoUrl">
+    </a>
+    <div class="bg-white flex flex-col justify-start p-6">
+        <div class="text-green-700 text-sm font-bold uppercase pb-4">{{ post.category }}</div>
+        <a [routerLink]="['/blog/post', post.postId]" class="text-3xl font-bold hover:text-gray-700 pb-4">{{ post.title }}</a>
+        <p class="text-sm pb-3">
+            By <span class="font-semibold hover:text-gray-800">{{ post.author }}</span>, Published on {{ post.publishDate }}
+        </p>
+        <p  class="pb-6">{{ post.content }}</p>
+        <app-button theme='primary' [routerLink]="['/blog/post', post.postId]" >Continue Reading</app-button>
+    </div>
+</article>

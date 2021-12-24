@@ -1,0 +1,28 @@
+<div class="px-2 xl:px-0 py-2">
+    <div class="flex flex-col lg:flex-row flex-wrap">
+        <div class="mt-4 lg:mt-0 lg:w-3/5">
+            <div>
+                <app-title>Notes</app-title>
+            </div>
+        </div>
+    </div>
+    <form [formGroup]='noteForm' (ngSubmit)='submit()'>
+        <div class="mb-6">
+            <label for="note" class="block mb-2 text-sm font-medium text-gray-500 dark:text-gray-300">Your note:</label>
+            <input formControlName='note' type="text" id="note" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Angular is the best" required="">
+            <p *ngIf="note.invalid && (note.dirty || note.touched)" class="mt-2 text-sm text-red-600 dark:text-red-500">
+                Please provide a valid note.
+            </p>
+        </div>
+        <div class="flex items-start">
+            <app-button type="submit" theme="primary" [disabled]="noteForm.invalid">Add note</app-button>
+        </div>
+    </form>
+    <div>
+        <ul class='divide-y divide-gray-200'>
+            <li @items class='my-2 block text-md font-semibold text-gray-500' *ngFor='let n of noteList'>
+                <span >{{ n.text }}</span> <span class='ml-2 cursor-pointer text-red-500' (click)='deleteNote(n.id)'>x</span>
+            </li>
+        </ul>
+    </div>
+</div>
