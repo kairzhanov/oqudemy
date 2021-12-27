@@ -30,6 +30,10 @@ const routes: Routes = [
     component: CoursesComponent,
   },
   {
+    path: 'course/:courseId',
+    component: CourseComponent
+  },
+  {
     path: 'about',
     component: AboutComponent,
   },

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../../core/models/course.model';
-import { courses } from './../../core/data'
+import { CourseService } from '../../core/services/course.service';
 
 
 @Component({
@@ -10,12 +10,16 @@ import { courses } from './../../core/data'
 })
 export class DashboardComponent implements OnInit {
 
-  myCourses: Course[] = courses.filter(c => c.enrolled === true);
-  recommendedCourses: Course[] = courses.filter(c => c.enrolled === false);
+  myCourses: Course[] = [];
+  recommendedCourses: Course[] = [];
 
-  constructor() { }
+  constructor(private courseService: CourseService) { }
 
   ngOnInit(): void {
+    this.courseService.getCourses().subscribe(res => {
+      this.myCourses = res.filter(c => c.enrolled === true);
+      this.recommendedCourses = res.filter(c => c.enrolled === false);
+    })
   }
 
 }

@@ -27,6 +27,8 @@ import { AuthModule } from './pages/auth/auth.module';
 import { BlogModule } from './pages/blog/blog.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { RoleGuard } from './core/guards/role.guard';
+import { UserRoleGuard } from './core/guards/user-role.guard';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,7 @@ import { BrowserModule } from '@angular/platform-browser';
     AuthModule,
     BlogModule,
   ],
-  providers: [AuthGuard, ExitGuard],
+  providers: [AuthGuard, ExitGuard, RoleGuard, UserRoleGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
