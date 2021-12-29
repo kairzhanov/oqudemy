@@ -8,6 +8,9 @@ const routes: Routes = [
     path: '', 
     component: AdminComponent,
     canActivate: [ RoleGuard ],
+    data: {
+      breadcrumb: 'Admin'
+    }
   }
 ];
 

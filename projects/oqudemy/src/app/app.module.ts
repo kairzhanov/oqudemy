@@ -3,8 +3,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './pages/landing/home/home.component';
 import { CoursesComponent } from './pages/landing/courses/courses.component';
 import { AboutComponent } from './pages/landing/about/about.component';
@@ -29,12 +27,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { RoleGuard } from './core/guards/role.guard';
 import { UserRoleGuard } from './core/guards/user-role.guard';
+import { LoaderInterceptor } from './core/interceptors/loader.interceptor';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
     HomeComponent,
     CoursesComponent,
     AboutComponent,
@@ -60,7 +58,11 @@ import { UserRoleGuard } from './core/guards/user-role.guard';
     AuthModule,
     BlogModule,
   ],
-  providers: [AuthGuard, ExitGuard, RoleGuard, UserRoleGuard],
+  providers: [
+    AuthGuard, ExitGuard, RoleGuard, UserRoleGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

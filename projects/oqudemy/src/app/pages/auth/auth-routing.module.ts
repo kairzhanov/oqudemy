@@ -10,24 +10,36 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 const routes: Routes = [
   { 
     path: '', 
-    component: AuthComponent 
+    component: AuthComponent,
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    data: {
+      breadcrumb: 'Login'
+    }
   },
   {
     path: 'register',
     component: RegisterComponent,
-    canDeactivate: [ ExitGuard ]
+    canDeactivate: [ ExitGuard ],
+    data: {
+      breadcrumb: 'Sign Up'
+    }
   },
   {
     path: 'forgot-password',
     component: ForgotPasswordComponent,
+    data: {
+      breadcrumb: 'Forgot Password'
+    }
   },
   {
     path: 'reset-password',
-    component: ResetPasswordComponent
+    component: ResetPasswordComponent,
+    data: {
+      breadcrumb: 'Reset Password'
+    }
   }
 ];
 

@@ -23,7 +23,6 @@ export class CourseComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.pipe(switchMap(params => {
       if (params['courseId']) {
-        console.log(params);
         this.courseId = Number(params['courseId']);
         return this.courseService.getCourse(this.courseId);
       }
@@ -34,10 +33,8 @@ export class CourseComponent implements OnInit {
         this.lessonService.getLessons(this.courseId).subscribe(res => {
           if (res !== null) {
             this.lessons = res;
-            console.log(this.lessons);
           }
         })
-        console.log(this.course);
       }
     });
   }

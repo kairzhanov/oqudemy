@@ -12,6 +12,7 @@ import { LessonListComponent } from './lesson-list/lesson-list.component';
 import { RatingComponent } from './rating/rating.component';
 import { QnaItemComponent } from './qna-item/qna-item.component';
 import { PostCardComponent } from './post-card/post-card.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
@@ -26,7 +27,8 @@ import { PostCardComponent } from './post-card/post-card.component';
     LessonListComponent,
     RatingComponent,
     QnaItemComponent,
-    PostCardComponent
+    PostCardComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,8 @@ import { PostCardComponent } from './post-card/post-card.component';
     LessonListComponent,
     RatingComponent,
     QnaItemComponent,
-    PostCardComponent
+    PostCardComponent,
+    SpinnerComponent,
   ]
 })
 export class UiModule { }

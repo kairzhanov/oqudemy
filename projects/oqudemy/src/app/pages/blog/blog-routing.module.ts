@@ -7,15 +7,21 @@ import { PostComponent } from './post/post.component';
 const routes: Routes = [
   { 
     path: '', 
-    component: BlogComponent 
+    component: BlogComponent,
   },
   {
     path: 'post/:postId',
-    component: PostComponent
+    component: PostComponent,
+    data: {
+      breadcrumb: 'Post'
+    }
   },
   {
     path: 'category/:category',
-    component: CategoryComponent
+    component: CategoryComponent,
+    data: {
+      breadcrumb: 'Category'
+    }
   }
 ];
 

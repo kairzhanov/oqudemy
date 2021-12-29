@@ -117,6 +117,33 @@ export const lessons: Lesson[] = [
         previewUrl: 'assets/img/lesson-6.png',
         lessonId: 6,
     }),
+    new Lesson({
+        title: 'Introduction',
+        videoUrl: '4vQJMyk2DPU',
+        description: 'Introduction',
+        courseId: 2,
+        length: 5,
+        previewUrl: 'assets/img/lesson-1.png',
+        lessonId: 7,
+    }),
+    new Lesson({
+        title: 'Hello World and dotnet CLI',
+        videoUrl: 'eXtW87Wi3Bw',
+        description: 'Hello World and dotnet CLI',
+        courseId: 2,
+        length: 6,
+        previewUrl: 'assets/img/lesson-2.png',
+        lessonId: 8,
+    }),
+    new Lesson({
+        title: 'Application Architecture',
+        videoUrl: 'l9yOMPx3QSE',
+        description: 'Application Architecture',
+        courseId: 2,
+        length: 6,
+        previewUrl: 'assets/img/lesson-3.png',
+        lessonId: 9,
+    }),
 ];
 
 export const qnas: Qna[] = [

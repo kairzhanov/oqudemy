@@ -23,23 +23,35 @@ import { NotFoundComponent } from './pages/error/not-found/not-found.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'courses',
     component: CoursesComponent,
+    data: {
+      breadcrumb: 'Courses'
+    }
   },
   {
     path: 'course/:courseId',
-    component: CourseComponent
+    component: CourseComponent,
+    data: {
+      breadcrumb: 'Course'
+    }
   },
   {
     path: 'about',
     component: AboutComponent,
+    data: {
+      breadcrumb: 'About'
+    }
   },
   {
     path: 'contact-us',
-    component: ContactUsComponent
+    component: ContactUsComponent,
+    data: {
+      breadcrumb: 'Contact Us'
+    }
   },
   // {
   //   path: 'promos',
@@ -55,7 +67,10 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: DashboardComponent
+        component: DashboardComponent,
+        data: {
+          breadcrumb: 'Dashboard'
+        }
       },
       // {
       //   path: 'cart',
@@ -68,28 +83,43 @@ const routes: Routes = [
       {
         path: 'lesson/:lessonId',
         component: LessonComponent,
+        data: {
+          breadcrumb: 'Lesson'
+        },
         children: [
           {
             path: '',
-            component: LessonOverviewComponent
+            component: LessonOverviewComponent,
           },
           {
             path: 'qna',
             component: LessonQnaComponent,
+            data: {
+              breadcrumb: 'Q&A'
+            }
           },
           {
             path: 'notes',
-            component: LessonNotesComponent
+            component: LessonNotesComponent,
+            data: {
+              breadcrumb: 'Notes'
+            }
           }
         ]
       },
       {
         path: 'courses',
         component: CoursesComponent,
+        data: {
+          breadcrumb: 'Courses'
+        }
       },
       {
         path: 'course/:courseId',
-        component: CourseComponent
+        component: CourseComponent,
+        data: {
+          breadcrumb: 'Course'
+        }
       },
       // {
       //   path: 'test/:testId',
@@ -100,7 +130,10 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            component: ProfileComponent
+            component: ProfileComponent,
+            data: {
+              breadcrumb: 'Profile'
+            }
           },
           // {
           //   path: 'settings',
@@ -111,9 +144,22 @@ const routes: Routes = [
     ]
   },
   // 3 pages
-  { path: 'blog', loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule) },
+  { 
+    path: 'blog', 
+    loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule),
+    data: {
+      breadcrumb: 'Blog'
+    }
+   },
   // 3 pages
-  { path: 'error', loadChildren: () => import('./pages/error/error.module').then(m => m.ErrorModule) },
+  { 
+    path: 'error', 
+    loadChildren: () => import('./pages/error/error.module').then(m => m.ErrorModule),
+    data: {
+      breadcrumb: 'Error'
+    }
+    
+  },
   // 1 page
   { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule) },
   // 4 pages

@@ -7,15 +7,21 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   { 
     path: '', 
-    component: ErrorComponent 
+    component: ErrorComponent,
   },
   {
     path: 'not-found',
     component: NotFoundComponent,
+    data: {
+      breadcrumb: 'Not Found'
+    }
   },
   {
     path: 'forbidden',
-    component: NoAccessComponent
+    component: NoAccessComponent,
+        data: {
+      breadcrumb: 'Forbidden'
+    }
   }
   
 ];

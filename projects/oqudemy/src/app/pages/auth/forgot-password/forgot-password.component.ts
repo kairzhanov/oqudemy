@@ -26,7 +26,6 @@ export class ForgotPasswordComponent implements OnInit {
 
   submit() {
     this.isInvalidEmail = false;
-    console.log(this.loginForm);
 
     if (!this.loginForm.valid) {
       return;
